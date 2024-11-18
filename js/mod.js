@@ -3,7 +3,7 @@ let modInfo = {
 	id: "mymo1qd",
 	author: "tmt-master",
 	pointsName: "points",
-	modFiles: ["layers.js", "tree.js"],
+	modFiles: ["p1.js", "p2.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -43,7 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
-	if (layers.p.effect().gte(1)) gain = gain.add(layers.p.effect())
+	if (layers.p1.effect().gte(1)) gain = gain.add(layers.p1.effect())
 	return gain
 }
 
