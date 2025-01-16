@@ -27,7 +27,7 @@ addLayer("p2", {
         return new Decimal(1)
     },
 
-    layerShown() { return (player.p1.points.gte(100)||player.p2.ulocked) },          // Returns a bool for if this layer's node should be visible in the tree.
+    layerShown() { return (player.p1.points.gte(100)||player.p2.unlocked) },          // Returns a bool for if this layer's node should be visible in the tree.
 
     upgrades: {
         // Look in the upgrades docs to see what goes here!
