@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "Polynomal Points",
+	name: "Polynomial Points",
 	id: "mymo1qd",
 	author: "tmt-master",
 	pointsName: "points",
