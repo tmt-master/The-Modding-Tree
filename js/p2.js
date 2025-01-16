@@ -10,9 +10,6 @@ addLayer("p2", {
 
     baseResource: "points^1",                 // The name of the resource your prestige gain is based on.
     baseAmount() { return player.p1.points },  // A function to return the current amount of baseResource.\
-    passiveGeneration() {   // Also the amount required to unlock the layer.
-    	return player.p3.points
-    },
     requires: new Decimal(400),              // The amount of the base needed to  gain 1 of the prestige currency.
    
    
@@ -60,7 +57,7 @@ addLayer("p2", {
 	branches:["p1"],
     update(diff) {
 	    let gain = 1
-	    gain = gain.times(player.p2.points)
+	    gain = gain.times(player.p3.points)
  	// generation
 	gain = gain.times(diff)
 	player.p2.points = player.p2.points.add(gain)
