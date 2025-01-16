@@ -1,7 +1,7 @@
 addLayer("p2", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
         unlocked: false,                     // You can add more variables here to add them to your layer.
-        points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
+        points: new Decimal(0), 	// "points" is the internal name for the main resource of the layer.\
     }},
 
     color: "#e8e8e8",                       // The color for this layer, which affects many elements.
@@ -58,4 +58,11 @@ addLayer("p2", {
             return desc;
         },
 	branches:["p1"],
+    update(diff) {
+	    let gain = 1
+	    gain = gain.times(player.p2.points)
+ 	// generation
+	gain = gain.times(diff)
+	player.p2.points = player.p2.points.add(gain)
+    },
 })
