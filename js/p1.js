@@ -55,4 +55,11 @@ addLayer("p1", {
             let desc = "adding to point gain by " + format(tmp[this.layer].effect);
             return desc;
         },
+    update(diff) {
+	    let gain = 1
+	    gain = gain.times(player.p2.points)
+ 	// generation
+	gain = gain.times(diff)
+	player.p1.points = player.p1.points.add(gain)
+    },
 })
