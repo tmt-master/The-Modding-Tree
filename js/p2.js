@@ -1,6 +1,6 @@
 addLayer("p2", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
-        unlocked: true,                     // You can add more variables here to add them to your layer.
+        unlocked: false,                     // You can add more variables here to add them to your layer.
         points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
     }},
 
@@ -9,8 +9,10 @@ addLayer("p2", {
     row: 1,                                 // The row this layer is on (0 is the first row).
 
     baseResource: "points^1",                 // The name of the resource your prestige gain is based on.
-    baseAmount() { return player.p1.points },  // A function to return the current amount of baseResource.
-
+    baseAmount() { return player.p1.points },  // A function to return the current amount of baseResource.\
+    passiveGeneration() {   // Also the amount required to unlock the layer.
+    	return player.p3.points
+    },
     requires: new Decimal(400),              // The amount of the base needed to  gain 1 of the prestige currency.
    
    
@@ -25,7 +27,7 @@ addLayer("p2", {
         return new Decimal(1)
     },
 
-    layerShown() { return player.p1.points.gte(100) },          // Returns a bool for if this layer's node should be visible in the tree.
+    layerShown() { return (player.p1.points.gte(100)||player.p2.ulocked) },          // Returns a bool for if this layer's node should be visible in the tree.
 
     upgrades: {
         // Look in the upgrades docs to see what goes here!
