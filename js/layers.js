@@ -110,7 +110,7 @@ addLayer("p", {
 		23: {
             title: "Princess Anne",
             description: "Multiply point gain by Princess Anne's formula.",
-            cost: new Decimal(10),
+            cost: new Decimal(12),
             unlocked() { return (hasUpgrade('p', 22)) },
 			tooltip(){ return "Princess Anne's formula is (((mastered points/100)+1)<sup>4</sup>)x(log<sub>1.7</sub>(mastered points+1)<sup>2</sup>)+1" },
 			effect() {return player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).add(1)},
