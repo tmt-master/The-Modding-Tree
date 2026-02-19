@@ -14,6 +14,7 @@ addLayer("p", {
 	    if (hasUpgrade('p', 22)) req = req.div(upgradeEffect('p', 22))
 		if (hasUpgrade('p', 24)) req = req.div(upgradeEffect('p', 24))
 		if (hasUpgrade('p', 31)) req = req.div(upgradeEffect('p', 31))
+		if (hasUpgrade('p', 35)) req = req.div(upgradeEffect('p', 35))
 	return req
     },
 
@@ -163,6 +164,14 @@ addLayer("p", {
             unlocked() { return (hasUpgrade('p', 33)) },
 			tooltip(){ return "The River formula is ((((mastered points/846)+1)<sup>6</sup>)x(log<sub>1.6</sub>(mastered points+1)<sup>2.123</sup>)<sup>1.3142</sup>)+1" },
 			effect() {return player.p.points.div(846).add(1).pow(6).times(player.p.points.add(1).log(1.6).pow(2.123)).pow(1.3142).add(1)},
+            effectDisplay() {return "x"+format(this.effect())},
+	},
+		35: {
+            title: "MJ (custom)",
+            description: "Custom upgrade! MJ happy. Divide mastered point cost by (river formula)^1.3294",
+            cost: new Decimal(35),
+            unlocked() { return (hasUpgrade('p', 34)) },
+			effect() {return (player.p.points.div(846).add(1).pow(6).times(player.p.points.add(1).log(1.6).pow(2.123)).pow(1.3142)).pow(1.3294).add(1)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
     },
