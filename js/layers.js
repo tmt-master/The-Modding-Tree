@@ -68,7 +68,7 @@ addLayer("p", {
             description: "Divide mastered point cost based on points.",
             cost: new Decimal(2),
             effect() {return player.points.add(1).pow(0.3)},
-            effectDisplay() {return "÷"+format(this.effect())},
+            effectDisplay() {return "/"+format(this.effect())},
             unlocked() { return (hasUpgrade('p', 11)) },
 	},
         13: {
@@ -84,7 +84,7 @@ addLayer("p", {
             description: "Divide mastered point cost based on mastered points.",
             cost: new Decimal(6),
             effect() {return player.p.points.add(1).pow(0.45)},
-            effectDisplay() {return "÷"+format(this.effect())},
+            effectDisplay() {return "/"+format(this.effect())},
             unlocked() { return (hasUpgrade('p', 13)) },
 	},
         15: {
@@ -106,7 +106,7 @@ addLayer("p", {
             unlocked() { return (hasUpgrade('p', 21)) },
 			tooltip(){ return "Lansdowne's formula is (((mastered points/2.9)+1)<sup>2.9</sup>)x(log<sub>2.9</sub>(mastered points+1))+1" },
 			effect() {return player.p.points.div(2.9).add(1).pow(2.9).times(player.p.points.add(1).log(2.9)).add(1)},
-            effectDisplay() {return "÷"+format(this.effect())},
+            effectDisplay() {return "/"+format(this.effect())},
 	},
 		23: {
             title: "Princess Anne",
@@ -123,7 +123,7 @@ addLayer("p", {
             cost: new Decimal(16),
             unlocked() { return (hasUpgrade('p', 23)) },
 			effect() {return player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).pow(1.2).add(1)},
-            effectDisplay() {return "x"+format(this.effect())},
+            effectDisplay() {return "/"+format(this.effect())},
 	},
     },
     milestones: {
