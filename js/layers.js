@@ -122,7 +122,6 @@ addLayer("p", {
             description: "Divide mastered point cost by (Princess Anne's formula)^1.2.",
             cost: new Decimal(16),
             unlocked() { return (hasUpgrade('p', 23)) },
-			tooltip(){ return "Princess Anne's formula is (((mastered points/100)+1)<sup>4</sup>)x(log<sub>1.7</sub>(mastered points+1)<sup>2</sup>)+1" },
 			effect() {return player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).pow(1.2).add(1)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
