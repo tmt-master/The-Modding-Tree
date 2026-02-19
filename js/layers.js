@@ -128,7 +128,7 @@ addLayer("p", {
 	},
 		25: {
             title: "Ms. Rocca",
-            description: "Miltiply point gain by Lansdowne's formula^0.75.",
+            description: "Multiply point gain by Lansdowne's formula^0.75.",
             cost: new Decimal(19),
             unlocked() { return (hasUpgrade('p', 24)) },
 			effect() {return player.p.points.div(2.9).add(1).pow(2.9).times(player.p.points.add(1).log(2.9)).pow(0.75).add(1)},
@@ -138,7 +138,7 @@ addLayer("p", {
             title: "School's Fury",
             description: "Divide mastered point cost by (Lansdowne's formula x Princess Anne's formula)^0.5.",
             cost: new Decimal(22),
-            unlocked() { return (hasUpgrade('p', 25) },
+            unlocked() { return (hasUpgrade('p', 25)) },
 			effect() {return ((player.p.points.div(2.9).add(1).pow(2.9).times(player.p.points.add(1).log(2.9))).times(player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).add(1))).pow(0.5).add(1)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
