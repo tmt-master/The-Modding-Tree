@@ -12,6 +12,7 @@ addLayer("p", {
         if (hasUpgrade('p', 12)) req = req.div(upgradeEffect('p', 12))
         if (hasUpgrade('p', 14)) req = req.div(upgradeEffect('p', 14))
 	    if (hasUpgrade('p', 22)) req = req.div(upgradeEffect('p', 22))
+		if (hasUpgrade('p', 24)) req = req.div(upgradeEffect('p', 24))
 	return req
     },
 
@@ -114,6 +115,15 @@ addLayer("p", {
             unlocked() { return (hasUpgrade('p', 22)) },
 			tooltip(){ return "Princess Anne's formula is (((mastered points/100)+1)<sup>4</sup>)x(log<sub>1.7</sub>(mastered points+1)<sup>2</sup>)+1" },
 			effect() {return player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).add(1)},
+            effectDisplay() {return "x"+format(this.effect())},
+	},
+		24: {
+            title: "Panthers",
+            description: "Divide mastered point cost by (Princess Anne's formula)^1.2.",
+            cost: new Decimal(12),
+            unlocked() { return (hasUpgrade('p', 22)) },
+			tooltip(){ return "Princess Anne's formula is (((mastered points/100)+1)<sup>4</sup>)x(log<sub>1.7</sub>(mastered points+1)<sup>2</sup>)+1" },
+			effect() {return player.p.points.div(100).add(1).pow(4).times(player.p.points.add(1).log(1.7).pow(2)).pow(1.2).add(1)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
     },
