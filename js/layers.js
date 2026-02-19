@@ -11,6 +11,7 @@ addLayer("p", {
         let req = new Decimal(10)
         if (hasUpgrade('p', 12)) req = req.div(upgradeEffect('p', 12))
         if (hasUpgrade('p', 14)) req = req.div(upgradeEffect('p', 14))
+	    if (hasUpgrade('p', 22)) req = req.div(upgradeEffect('p', 22))
 	return req
     },
 
@@ -96,6 +97,15 @@ addLayer("p", {
             description: "x2.9 Points.",
             cost: new Decimal(7),
             unlocked() { return (hasUpgrade('p', 15)) },
+	},
+		22: {
+            title: "29ers",
+            description: "Divide mastered point cost by Lansdowne's formula.",
+            cost: new Decimal(8),
+            unlocked() { return (hasUpgrade('p', 21)) },
+			tooltip(){ return "Lansdowne's formula is ((mastered points/2.9)<sup>2.9</sup>)x(log<sub>2.9</sub>(mastered points+1))+1" },
+			effect() {return player.p.points.div(2.9).pow(2.9).times(player.p.points.add(1).log(2.9)).add(1)},
+            effectDisplay() {return "÷"+format(this.effect())},
 	},
     },
     milestones: {
