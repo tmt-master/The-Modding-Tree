@@ -151,8 +151,8 @@ addLayer("p", {
             effectDisplay() {return "x"+format(this.effect())},
 	},
 		33: {
-            title: "398 jean st",
-            description: "Multiply point gain by x398.",
+            title: "398 jean st (custom)",
+            description: "Custom upgrade! Multiply point gain by x398.",
             cost: new Decimal(27),
             unlocked() { return (hasUpgrade('p', 32)) },
 	},
