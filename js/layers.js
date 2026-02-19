@@ -91,6 +91,12 @@ addLayer("p", {
             cost: new Decimal(7),
             unlocked() { return (hasUpgrade('p', 14)) },
 	},
+		21: {
+            title: "Lansdowne",
+            description: "x2.9 Points.",
+            cost: new Decimal(7),
+            unlocked() { return (hasUpgrade('p', 15)) },
+	},
     },
     milestones: {
         0: {
