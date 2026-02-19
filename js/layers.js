@@ -156,6 +156,15 @@ addLayer("p", {
             cost: new Decimal(27),
             unlocked() { return (hasUpgrade('p', 32)) },
 	},
+		34: {
+            title: "river (custom)",
+            description: "Custom upgrade! Multiply point gain by the river formula.",
+            cost: new Decimal(31),
+            unlocked() { return (hasUpgrade('p', 33)) },
+			tooltip(){ return "The River formula is ((((mastered points/846)+1)<sup>6</sup>)x(log<sub>1.6</sub>(mastered points+1)<sup>2.123</sup>)<sup>1.3142</sup>)+1" },
+			effect() {return player.p.points.div(846).add(1).pow(6).times(player.p.points.add(1).log(1.6).pow(2.123)).pow(1.3142).add(1)},
+            effectDisplay() {return "x"+format(this.effect())},
+	},
     },
     milestones: {
         0: {
