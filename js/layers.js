@@ -150,6 +150,12 @@ addLayer("p", {
 			effect() {return player.points.add(1).pow(0.1)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
+		33: {
+            title: "398 jean st",
+            description: "Multiply point gain by x398.",
+            cost: new Decimal(27),
+            unlocked() { return (hasUpgrade('p', 32)) },
+	},
     },
     milestones: {
         0: {
