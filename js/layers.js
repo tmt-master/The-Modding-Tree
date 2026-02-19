@@ -128,7 +128,7 @@ addLayer("p", {
 	},
 		25: {
             title: "Ms. Rocca",
-            description: "Multiply point gain by Lansdowne's formula^0.75.",
+            description: "Multiply point gain by (Lansdowne's formula)^0.75.",
             cost: new Decimal(19),
             unlocked() { return (hasUpgrade('p', 24)) },
 			effect() {return player.p.points.div(2.9).add(1).pow(2.9).times(player.p.points.add(1).log(2.9)).pow(0.75).add(1)},
