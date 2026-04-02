@@ -77,7 +77,7 @@ addLayer("p", {
             title: "Mult",
             description: "Multiply point gain based on mastered points.",
             cost: new Decimal(4),
-            effect() {return player.p.points.add(1).pow(0.5)},
+            effect() {return player.p.points.add(1).pow(0.55)},
             effectDisplay() {return "x"+format(this.effect())},
             unlocked() { return (hasUpgrade('p', 12)) },
 	},
@@ -146,9 +146,9 @@ addLayer("p", {
 		32: {
             title: "Mr. Provincial",
             description: "Multiply point gain by itself.",
-            cost: new Decimal(26),
+            cost: new Decimal(25),
             unlocked() { return (hasUpgrade('p', 31)) },
-			effect() {return player.points.add(1).pow(0.1)},
+			effect() {return player.points.add(1).pow(0.11)},
             effectDisplay() {return "x"+format(this.effect())},
 	},
 		33: {
