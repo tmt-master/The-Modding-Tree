@@ -146,7 +146,7 @@ addLayer("p", {
 		32: {
             title: "Mr. Provincial",
             description: "Multiply point gain by itself.",
-            cost: new Decimal(25),
+            cost: new Decimal(26),
             unlocked() { return (hasUpgrade('p', 31)) },
 			effect() {return player.points.add(1).pow(0.11)},
             effectDisplay() {return "x"+format(this.effect())},
@@ -172,7 +172,7 @@ addLayer("p", {
             cost: new Decimal(35),
             unlocked() { return (hasUpgrade('p', 34)) },
 			effect() {return (player.p.points.div(846).add(1).pow(6).times(player.p.points.add(1).log(1.6).pow(2.123)).pow(1.3142)).pow(1.3294).add(1)},
-            effectDisplay() {return "x"+format(this.effect())},
+            effectDisplay() {return "/"+format(this.effect())},
 	},
     },
     milestones: {
